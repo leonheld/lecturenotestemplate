@@ -1,0 +1,67 @@
+\documentclass[a4paper]{article}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\evensidemargin}{0.25 in}
+\setlength{\topmargin}{-1.8 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+\pagenumbering{Roman}
+\usepackage{amsmath,amsfonts,amssymb,graphicx,mathtools,flexisym,multido,pgffor}
+
+\usepackage[includefoot,bottom=3pt, top=10pt, left=22pt, right=10pt]{geometry}
+
+\usepackage{fancyhdr}
+\usepackage{lipsum} % only for showing some sample text
+\fancyhf{} % clear all header and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\rfoot{\Huge{\thepage}}
+\pagestyle{fancy}
+
+
+\newcommand{\lecturecover}[3]{
+	\newpage
+	\noindent
+	\begin{center}
+		\framebox{
+			\vbox{\vspace{2mm}
+				\hbox to 6.28in { {\bf \hspace{7mm} /
+						\hfill Prova: #1} }
+				\vspace{4mm}
+				\hbox to 6.28in { {\Large \hfill #2  \hfill} }
+				\vspace{2mm}
+				\hbox to 6.28in { {\it Leonardo Held \hfill Semestre 20.1} }
+				\vspace{2mm}}
+		}
+	\end{center}
+	\vspace*{4mm}
+}
+
+\newcommand{\lecturemiddle}[3]{
+	\newpage
+	\noindent
+	\begin{center}
+		\framebox{
+			\vbox{\vspace{2mm}
+				\hbox to 6.28in { {\bf \hspace{7mm} /
+						\hfill Prova: #1} }
+				\hbox to 6.28in { {\it Leonardo Held \hfill Semestre 20.1} }
+				\vspace{2mm}}
+		}
+	\end{center}
+	\vspace*{4mm}
+}
+\unitlength=1mm
+%\foreach \n in {0,...,22}{do something}
+
+\begin{document}
+	%\lecturecover{**Número da prova**}{**Nome do Curso**}
+	\lecturecover{1}{Nome do Curso}
+	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{50}{\put(\iC,\iR){\circle*{0.1}}}}}    	
+	%TODO: fix inputs
+	\newpage
+	%TODO: better way to start loop from a page by not using \setcounter{page}{n}
+\foreach \n in {0,...,3}{	\lecturemiddle{arg1}{arg2}{arg3}
+	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{53}{\put(\iC,\iR){\circle*{0.1}}}}}  }
+\end{document}
