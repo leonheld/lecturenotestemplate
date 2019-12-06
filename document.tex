@@ -7,7 +7,10 @@
 \setlength{\headsep}{0.75 in}
 \setlength{\parindent}{0 in}
 \setlength{\parskip}{0.1 in}
-\pagenumbering{Roman}
+\usepackage{fmtcount}
+\renewcommand{\thepage}{\binary{page}}
+%\setcounter{page}{1}% To begin at 0
+
 \usepackage{amsmath,amsfonts,amssymb,graphicx,mathtools,flexisym,multido,pgffor}
 
 \usepackage[includefoot,bottom=3pt, top=10pt, left=22pt, right=10pt]{geometry}
@@ -57,11 +60,12 @@
 
 \begin{document}
 	%\lecturecover{**Número da prova**}{**Nome do Curso**}
-	\lecturecover{1}{Nome do Curso}
-	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{50}{\put(\iC,\iR){\circle*{0.1}}}}}    	
+	%\lecturecover{1}{Nome do Curso}
+	%\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{50}{\put(\iC,\iR){\circle*{0.1}}}}}    	
 	%TODO: fix inputs
 	\newpage
 	%TODO: better way to start loop from a page by not using \setcounter{page}{n}
+	\setcounter{page}{1}
 \foreach \n in {0,...,3}{	\lecturemiddle{arg1}{arg2}{arg3}
 	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{53}{\put(\iC,\iR){\circle*{0.1}}}}}  }
 \end{document}
