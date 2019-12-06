@@ -8,6 +8,7 @@
 \setlength{\parindent}{0 in}
 \setlength{\parskip}{0.1 in}
 \usepackage{fmtcount}
+\usepackage{expl3}
 \renewcommand{\thepage}{\binary{page}}
 %\setcounter{page}{1}% To begin at 0
 
@@ -41,7 +42,7 @@
 	\vspace*{4mm}
 }
 
-\newcommand{\lecturemiddle}[3]{
+\newcommand{\lecturemiddle}[1]{
 	\newpage
 	\noindent
 	\begin{center}
@@ -59,13 +60,22 @@
 %\foreach \n in {0,...,22}{do something}
 
 \begin{document}
-	%\lecturecover{**Número da prova**}{**Nome do Curso**}
-	%\lecturecover{1}{Nome do Curso}
-	%\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{50}{\put(\iC,\iR){\circle*{0.1}}}}}    	
-	%TODO: fix inputs
-	\newpage
-	%TODO: better way to start loop from a page by not using \setcounter{page}{n}
 	\setcounter{page}{1}
-\foreach \n in {0,...,3}{	\lecturemiddle{arg1}{arg2}{arg3}
-	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{53}{\put(\iC,\iR){\circle*{0.1}}}}}  }
+	
+	%\lecturecover{**Número da prova**}{**Nome do Curso**}
+	\lecturecover{1}{Sistemas Lineares}
+	
+	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{50}{\put(\iC,\iR){\circle*{0.1}}}}}    	
+	
+	%TODO: fix inputs
+	
+	\newpage
+	
+	%\setcounter{page}{1}
+\foreach \n in {0,...,25}
+	{
+	%\lecturemiddle{**Número da prova**}
+	\lecturemiddle{1}
+	\vbox {\leavevmode\multido{\iC=0+5}{40}{\multido{\iR=0+5}{53}{\put(\iC,\iR){\circle*{0.1}}}}}  
+	}
 \end{document}
